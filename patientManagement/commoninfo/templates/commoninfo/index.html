@@ -19,11 +19,20 @@
         <td>
             {{ patient.street }}
             {{ patient.city }}
-            {{ patient.state }}
+            {% if patient.state is None %}
+            {% else %}
+                {{ patient.state }}
+            {% endif %}
             {{ patient.postcode }}
         </td>
         <td>{{ patient.phone }}</td>
-        <td>{{ patient.email }}</td>
+        <td>
+            {% if patient.email is None %}
+            -
+            {% else %}
+            {{ patient.email }}
+            {% endif %}
+        </td>
     </tr>
     {% endfor %}
 </table>

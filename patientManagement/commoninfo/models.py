@@ -20,7 +20,7 @@ class Patient(models.Model):
     city = models.CharField(max_length=20, validators=[letters])
     state = models.CharField(max_length=20, validators=[letters], null=True, blank=True)
     postcode = models.CharField(max_length=8)
-    phone = models.CharField(max_length=14, validators=[nums])
+    phone = models.CharField(max_length=10, validators=[nums])
     email = models.EmailField(max_length=50, null=True, blank=True)
 
     class Meta: 
