@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Patients</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1 class="mt-2">Patient Management Application</h1>
+                <hr>
+                <p>
+                    <a href="{% url 'add' %}">
+                        <button type='button'>
+                            <h2>Register</h2>
+                        </button></a>
+                </p>
+                <p>
+                    <a href="{% url 'fetch' %}">
+                        <button type='button'>
+                            <h2>Check</h2>
+                        </button></a>
+                </p>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <hr>
+        <footer>&copy; Developed by Forum Desai</footer>
+    </div>
+</body>
+
+</html>
