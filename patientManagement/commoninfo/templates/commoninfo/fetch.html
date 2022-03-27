@@ -1,0 +1,49 @@
+{% extends "commoninfo/base.html" %}
+
+{% block content %}
+<h2>Patient Details</h2>
+<form action="" method="get">
+    <label>Search by Patient's ID: </label>
+    <input type="text" id="patientId" name="fetchId" size="1">
+    <button type='submit'>Submit</button>
+</form>
+<br>
+<table>
+    <tr>
+        <th>Patient ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+    {% for patient in fetch %}
+    <tr>
+        <td>{{ patient.unique_id }}</td>
+        <td>{{ patient.first_name }}</td>
+        <td>{{ patient.last_name }}</td>
+        <td>
+            {{ patient.street }}
+            {{ patient.city }}
+            {% if patient.state is None %}
+            {% else %}
+            {{ patient.state }}
+            {% endif %}
+            {{ patient.postcode }}
+        </td>
+        <td>{{ patient.phone }}</td>
+        <td>
+            {% if patient.email is None %}
+            -
+            {% else %}
+            {{ patient.email }}
+            {% endif %}
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No patient found</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

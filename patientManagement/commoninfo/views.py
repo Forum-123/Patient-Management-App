@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.db.models import Q
+
 from .models import Patient
-from .forms import AddPatientForm, GetPatientForm
+from .forms import AddPatientForm
 
 def index(request):
     context = { 'patients': Patient.objects.all() }
@@ -22,4 +24,11 @@ def add(request):
 
 def fetch(request):
     """Renders patient data"""
+    context = {}
+    if request.method == "GET":
+        try:
+            patient = Patient.objects.filter(pk=list(request.GET.values())[0])
+            context = { 'fetch': patient }
+        except Exception as e:
+            print(e)
     return render(request, 'commoninfo/fetch.html', context)

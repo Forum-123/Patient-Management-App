@@ -18,8 +18,3 @@ class AddPatientForm(forms.ModelForm):
             return True
 
         return False
-
-class GetPatientForm(forms.ModelForm):
-    class Meta:
-        model = Patient
-        fields = ['unique_id']
