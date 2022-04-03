@@ -2,13 +2,15 @@
 
 {% block content %}
 <h3>Patient Details</h3>
-<form action="" method="get">
-    <label>Search by Patient's ID: </label>
-    <input type="text" id="patientId" name="fetchId" size="1">
-    <button type='submit'>Submit</button>
+<form action="" method="get" id="patientIdForm">
+    <p>
+        <label for="patientId" id="patientIdSearch">Enter Patient's ID: </label>
+        <input type="text" id="patientIdInput" name="fetchId">
+        <button type="submit" class="submit">Search</button>
+    </p>
 </form>
 <br>
-<table>
+<table class="patientTable">
     <tr>
         <th>Patient ID</th>
         <th>First Name</th>
@@ -23,12 +25,14 @@
         <td>{{ patient.first_name }}</td>
         <td>{{ patient.last_name }}</td>
         <td>
-            {{ patient.street }}
-            {{ patient.city }}
+            {{ patient.street }},
+            <br>
+            {{ patient.city }},
             {% if patient.state is None %}
             {% else %}
-            {{ patient.state }}
+            {{ patient.state }},
             {% endif %}
+            <br>
             {{ patient.postcode }}
         </td>
         <td>{{ patient.phone }}</td>

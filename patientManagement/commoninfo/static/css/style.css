@@ -7,8 +7,13 @@ body {
 
 h1,
 h3,
+label,
 footer {
     font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: darkred;
 }
 
 footer,
@@ -39,15 +44,14 @@ a {
     display: inline-block;
 }
 
-button {
-    padding: 0.5rem 0.2rem;
+.navBtn {
+    padding: 0rem 1rem;
     font-family: 'Lato', sans-serif;
     width: 100%;
     text-align: center;
     cursor: pointer;
     color: darkred;
     font-weight: bold;
-    font-size: 1rem;
 }
 
 /* add.html */
@@ -60,28 +64,54 @@ button {
 
 /* Table */
 
-table {
+.patientTable {
     font-family: 'Lato', sans-serif;
     border-collapse: collapse;
     width: 75%;
     margin: auto;
 }
 
-th,
-td {
+.patientTable th,
+.patientTable td {
     padding: 0.25rem;
     border: 1px solid #ccc;
 }
 
-tbody tr:nth-child(odd) {
+.patientTable tbody tr:nth-child(odd) {
     background: #eee;
 }
 
 /* Form */
 
-input {
+form {
     width: 100%;
-    padding: 12px 17px;
-    margin: 8px 0;
+}
+
+#patientIdInput {
+    width: 3.5rem;
+    padding: 8px 12px;
+    margin: 8px 5px;
     box-sizing: border-box;
+}
+
+input {
+    padding: 8px 12px;
+    margin: 8px 5px;
+    box-sizing: border-box;
+}
+
+.submit {
+    padding: 0.5rem;
+    width: 4%;
+    text-align: center;
+    cursor: pointer;
+    color: darkred;
+    font-weight: bold;
+}
+
+#regSubmit {
+    width: 6%;
+    margin: 0 auto;
+    display: block;
+    font-size: 1rem;
 }

@@ -1,8 +1,9 @@
 {% extends "commoninfo/base.html" %}
 
 {% block content %}
-<h3>Here are all the patients</h3>
+<h3>List of all patients</h3>
 <table>
+    <table class="patientTable">
     <tr>
         <th>Patient ID</th>
         <th>First Name</th>
@@ -17,12 +18,14 @@
         <td>{{ patient.first_name }}</td>
         <td>{{ patient.last_name }}</td>
         <td>
-            {{ patient.street }}
-            {{ patient.city }}
+            {{ patient.street }},
+            <br>
+            {{ patient.city }},
             {% if patient.state is None %}
             {% else %}
-                {{ patient.state }}
+            {{ patient.state }},
             {% endif %}
+            <br>
             {{ patient.postcode }}
         </td>
         <td>{{ patient.phone }}</td>
