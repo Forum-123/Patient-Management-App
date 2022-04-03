@@ -15,30 +15,29 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-8 nav">
                 <h1 class="mt-2">Patient Management Application</h1>
-                <hr>
-                <p>
+                <div class="buttons">
                     <a href="{% url 'add' %}">
                         <button type='button'>
                             <h2>Register</h2>
-                        </button></a>
-                </p>
-                <p>
+                        </button>
+                    </a>
                     <a href="{% url 'fetch' %}">
                         <button type='button'>
                             <h2>Check</h2>
-                        </button></a>
-                </p>
-                <p>
+                        </button>
+                    </a>
                     <a href="{% url 'index' %}">
                         <button type='button'>
                             <h2>Home</h2>
-                        </button></a>
-                </p>
-                {% block content %}
-                {% endblock %}
+                        </button>
+                    </a>
+                </div>
             </div>
+            <hr>
+            {% block content %}
+            {% endblock %}
         </div>
         <hr>
         <footer><i>&copy; Developed by Forum Desai</i></footer>
