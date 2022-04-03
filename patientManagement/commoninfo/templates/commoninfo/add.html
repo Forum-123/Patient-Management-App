@@ -5,16 +5,16 @@
 <form action="" method="post">
     {% if messages %}
 
+    {% endif %}
+    
+    {% csrf_token %}
+    {{form.as_p}}
+
     {% for message in messages %}
     <strong>
         <p class="message">{{ message }}</p>
     </strong>
     {% endfor %}
-
-    {% endif %}
-
-    {% csrf_token %}
-    {{form.as_p}}
 
     <button type='submit'>Submit</button>
 </form>

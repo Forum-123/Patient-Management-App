@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
+html,
+body {
+    margin: 0;
+}
+
+h1,
+h3,
+footer {
+    font-family: 'Roboto', sans-serif;
+}
+
+footer,
+th,
+td {
+    text-align: center;
+}
+
+.message {
+    color: darkred;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    display: block;
+    padding: 0.5rem 0;
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: darkred;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Table */
+
+table {
+    font-family: 'Lato', sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    margin: auto;
+}
+
+th,
+td {
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+tbody tr:nth-child(odd) {
+    background: #eee;
+}

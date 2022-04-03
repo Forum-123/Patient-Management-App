@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% block title %}
     <title>Patients</title>
     {% endblock %}
@@ -28,12 +30,18 @@
                             <h2>Check</h2>
                         </button></a>
                 </p>
+                <p>
+                    <a href="{% url 'index' %}">
+                        <button type='button'>
+                            <h2>Home</h2>
+                        </button></a>
+                </p>
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
         <hr>
-        <footer>&copy; Developed by Forum Desai</footer>
+        <footer><i>&copy; Developed by Forum Desai</i></footer>
     </div>
 </body>
 
