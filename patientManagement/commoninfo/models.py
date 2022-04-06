@@ -15,7 +15,7 @@ class Patient(models.Model):
     unique_id = models.AutoField(unique=True, primary_key=True)
     first_name = models.CharField(max_length=100, validators=[letters])
     last_name = models.CharField(max_length=100, validators=[letters])
-    date_of_birth = models.DateField(validators=[validate_birthyear], help_text="YYYY-MM-DD")
+    date_of_birth = models.DateField(validators=[validate_birthyear], help_text="(YYYY-MM-DD)")
     street = models.CharField(max_length=40, default="")
     city = models.CharField(max_length=20, validators=[letters])
     state = models.CharField(max_length=20, validators=[letters], null=True, blank=True)
