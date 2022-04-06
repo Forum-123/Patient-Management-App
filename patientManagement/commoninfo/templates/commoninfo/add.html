@@ -1,14 +1,59 @@
 {% extends "commoninfo/base.html" %}
 
 {% block content %}
-<h2>Registration</h2>
-<form action="" method="post">
-    {% if messages %}
-
-    {% endif %}
-    
+<h3>Registration</h3>
+<form action="" method="post" id="regForm">
     {% csrf_token %}
-    {{form.as_p}}
+    <div class="form_sections">
+        {% for field in form.visible_fields|slice:":3" %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <span class="help_text">{{ form.date_of_birth.help_text }}</span>
+            {% endif %}
+        </p>
+        {% if form.errors %}
+        {% for error in field.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="form_sections">
+        {% for field in form.visible_fields|slice:"3:7" %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <span class="help_text">{{ form.date_of_birth.help_text }}</span>
+            {% endif %}
+        </p>
+        {% if form.errors %}
+        {% for error in field.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="form_sections">
+        {% for field in form.visible_fields|slice:"7:" %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <span class="help_text">{{ form.date_of_birth.help_text }}</span>
+            {% endif %}
+        </p>
+        {% if form.errors %}
+        {% for error in field.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {% endfor %}
+    </div>
 
     {% for message in messages %}
     <strong>
@@ -17,5 +62,4 @@
     {% endfor %}
 
     <button type="submit" class="submit" id="regSubmit">Submit</button>
-</form>
 {% endblock %}
