@@ -19,6 +19,7 @@
         <th>Address</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>Delete?</th>
     </tr>
     {% for patient in fetch %}
     <tr>
@@ -45,11 +46,24 @@
             {{ patient.email }}
             {% endif %}
         </td>
+        <td>
+            <!-- Delete a patient -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="deleteBtns" name="deleteId" value="{{ patient.pk }}">X</button>
+            </form>
+        </td>
     </tr>
     {% empty %}
     <tr>
-        <td colspan="7">No patient found</td>
+        <td colspan="8">No patient found</td>
     </tr>
     {% endfor %}
 </table>
+{% for message in messages %}
+<strong>
+    <p class="message">{{ message }}</p>
+</strong>
+{% endfor %}
+
 {% endblock %}

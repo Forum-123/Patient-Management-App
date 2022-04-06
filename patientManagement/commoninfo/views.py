@@ -6,6 +6,7 @@ from .models import Patient
 from .forms import AddPatientForm
 
 def index(request):
+    """Renders all patients' data in database"""
     context = { 'patients': Patient.objects.all() }
     return render(request, 'commoninfo/index.html', context)
 
@@ -23,7 +24,7 @@ def add(request):
     return render(request, 'commoninfo/add.html', context)
 
 def fetch(request):
-    """Renders patient data"""
+    """Renders one patient's data"""
     context = {}
     if request.method == "GET":
         try:
@@ -31,4 +32,8 @@ def fetch(request):
             context = { 'fetch': patient }
         except Exception as e:
             print(e)
+    elif request.method == "POST":
+        patient_to_delete = request.POST.get("deleteId")
+        Patient.objects.filter(pk__in=patient_to_delete).delete()
+        messages.success(request, "Patient has been successfully deleted.")
     return render(request, 'commoninfo/fetch.html', context)

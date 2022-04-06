@@ -5,6 +5,7 @@
 <form action="" method="post" id="regForm">
     {% csrf_token %}
     <div class="form_sections">
+        <!-- Name and DoB fields -->
         {% for field in form.visible_fields|slice:":3" %}
         <p>
             {{ field.label_tag }}
@@ -22,6 +23,7 @@
     </div>
     <hr>
     <div class="form_sections">
+        <!-- Address fields -->
         {% for field in form.visible_fields|slice:"3:7" %}
         <p>
             {{ field.label_tag }}
@@ -39,6 +41,7 @@
     </div>
     <hr>
     <div class="form_sections">
+        <!-- Contact fields -->
         {% for field in form.visible_fields|slice:"7:" %}
         <p>
             {{ field.label_tag }}
